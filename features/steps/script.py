@@ -49,22 +49,22 @@ def AnalyticsTab(context):
     time.sleep(5)
 
 @when('Click on Fuse Dashboard tab')
-def step_impl(context):
+def fuseTab(context):
     context.driver.find_element_by_xpath("//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/*[1]").click()
     time.sleep(7)
 
 @when('Select corporate report tab')
-def step_impl(context):
+def reportTab(context):
     context.driver.find_element_by_xpath("//span[contains(text(), 'Corporate Report')]").click()
-    time.sleep(7)
+    time.sleep(12)
 
 @when('Click on sort icon of Warehouse')
-def step_impl(context):
+def warehouse(context):
     context.driver.find_element_by_xpath("//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/*[1]").click()
-    time.sleep(7)
+    time.sleep(5)
 
 @then('User should be able to sort')
-def step_impl(context):
+def sortIcon(context):
     context.driver.find_element_by_xpath("//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]").is_displayed()
     assert True
     time.sleep(5)
