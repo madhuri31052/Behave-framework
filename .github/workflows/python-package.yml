@@ -28,5 +28,6 @@ jobs:
         EMAIL_DB : ${{ secrets.EMAIL_DB }}
         PASS_DB : ${{ secrets.PASS_DB }}
       run: |
-        cd Tests/Behave
+        cd Tests
+        Behave
       
