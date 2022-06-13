@@ -2,12 +2,11 @@ from behave import *
 from selenium import webdriver
 import time
 import os
-# from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
-    context.driver=webdriver.Chrome(executable_path="C:\\Users\\leela\\.wdm\\drivers\\chromedriver\\win32\\102.0.5005.61")
-    # context.driver=webdriver.Chrome(ChromeDriverManager().install() )
+    context.driver=webdriver.Chrome(ChromeDriverManager().install() )
     context.driver.maximize_window()
     time.sleep(5)    
 
