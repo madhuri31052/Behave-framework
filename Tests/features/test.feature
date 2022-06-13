@@ -1,15 +1,15 @@
 Feature: workin on Automation  
 
-    Scenario Outline: Test login to Safework Dashboard with invalid credentials
-        Given Launch Chrome Browser
-        When Go to Safework login page
-        And Enters "<Email>" and "<Password>"
-        And Click on login button
-        Then User should not be able to login
-        Examples: dummy data
-        | Email | Password |
-        | email1 | pwd1 |
-        | email2 | pwd2 |
+    # Scenario Outline: Test login to Safework Dashboard with invalid credentials
+    #     Given Launch Chrome Browser
+    #     When Go to Safework login page
+    #     And Enters "<Email>" and "<Password>"
+    #     And Click on login button
+    #     Then User should not be able to login
+    #     Examples: dummy data
+    #     | Email | Password |
+    #     | email1 | pwd1 |
+    #     | email2 | pwd2 |
 
     Scenario: Login and logout on Safework Dashboard with valid credentials
         Given Launch Chrome Browser

@@ -46,7 +46,7 @@ def LoginCheck(context):
     
 @when('Click on Multibox tab')
 def MultiboxTab(context):
-    context.driver.find_element_by_css_selector("div:nth-child(1) div.jss233 div.MuiBox-root.jss238 div.MuiBox-root.jss239 > svg:nth-child(1)").click()
+    context.driver.find_element_by_xpath("//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]").click()
     time.sleep(5)
 
 @when('Click on Signout tab')
