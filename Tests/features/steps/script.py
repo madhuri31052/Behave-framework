@@ -8,7 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 def LaunchChrome(context):
     context.driver=webdriver.Chrome(ChromeDriverManager().install() )
     context.driver.maximize_window()
-    time.sleep(5)    
+    time.sleep(5)
 
 @when('Go to Safework login page')
 def SafewordDashboard(context):
@@ -28,7 +28,7 @@ pwd = os.environ.get('Pass_DB')
 def EnterCred(context):
     context.driver.find_element_by_id("username").send_keys(email)
     context.driver.find_element_by_id("password").send_keys(pwd)
-    time.sleep(5)   
+    time.sleep(5)
 
 @when('Click on login button')
 def LoginButton(context):
