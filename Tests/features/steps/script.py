@@ -9,7 +9,7 @@ def LaunchChrome(context):
     context.driver=webdriver.Chrome(executable_path="C:\\Users\\leela\\.wdm\\drivers\\chromedriver\\win32\\102.0.5005.61")
     # context.driver=webdriver.Chrome(ChromeDriverManager().install() )
     context.driver.maximize_window()
-    time.sleep(5)   
+    time.sleep(5)
 
 @when('Go to Safework login page')
 def SafewordDashboard(context):
