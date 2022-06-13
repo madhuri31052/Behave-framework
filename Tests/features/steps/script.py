@@ -29,7 +29,7 @@ pwd = os.environ.get('Pass_DB')
 def EnterCred(context):
     context.driver.find_element_by_id("username").send_keys(email)
     context.driver.find_element_by_id("password").send_keys(pwd)
-    time.sleep(5)
+    time.sleep(5)   
 
 @when('Click on login button')
 def LoginButton(context):
