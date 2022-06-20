@@ -1,10 +1,10 @@
 name: try-github-actions
 
 on:
-  # push:
-  #   branches: [ main ]
-  # pull_request:
-  #   branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       env_name:
@@ -34,24 +34,6 @@ jobs:
         EMAIL_DB : ${{ secrets.EMAIL_DB }}
         PASS_DB : ${{ secrets.PASS_DB }}
     - run: |
-        if [[ ${{ github.event.inputs.env_name }} == 'dev3' ]]; then
-          echo "cd Tests/behave features\dev3.feature"
-        if [[ ${{ github.event.inputs.env_name }} == 'qa' ]]; then
-          echo "cd Tests/behave features\qa.feature"
-        fi
-    # - if: ${{ github.event.inputs.env_name }} == dev3
-    #   run: echo "cd Tests/behave features\dev3.feature"
-    # - if: ${{ github.event.inputs.env_name }} == qa
-    #   run: echo "cd Tests/behave features\qa.feature"
-      # run: |
-      #   case ${{ github.event.inputs.env_name }} in  
-      #       dev3)
-      #       cd Tests
-      #       behave features\dev3.feature
-      #       ;;
-      #       qa)
-      #       cd Tests
-      #       behave features\qa.feature
-      #       ;;
-      #       esac
-      
+        cd Tests
+        behave
+ 
