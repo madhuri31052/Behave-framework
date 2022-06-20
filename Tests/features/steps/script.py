@@ -15,6 +15,11 @@ def SafewordDashboard(context):
     context.driver.get("https://qa.strongarmtech.com/login")
     time.sleep(5)
 
+@when('Go to youtube')
+def youTube(context):
+    context.driver.get("https://www.youtube.com/")
+    time.sleep(3)
+
 @when('Enters "{email}" and "{pwd}"')
 def EnterCred(context, email, pwd):
     context.driver.find_element_by_id("username").send_keys(email)
