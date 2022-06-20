@@ -33,12 +33,10 @@ jobs:
         pip install selenium
         pip install chromedriver
         pip install webdriver-manager
-    - name: extract secrets
+    - name: run behave file
       env:
         EMAIL_DB : ${{ secrets.EMAIL_DB }}
         PASS_DB : ${{ secrets.PASS_DB }}
-    - name: run behave file
-      env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: |
             case ${{ github.event.inputs.env_name }} in  
