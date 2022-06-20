@@ -40,13 +40,15 @@ jobs:
         PASS_DB : ${{ secrets.PASS_DB }}
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: |
+            echo "starting script"
             case ${{ github.event.inputs.env_name }} in  
-            dev3
+            dev3)
             cd Tests
             behave features\dev3.feature
             ;;
-            qa
+            qa)
             cd Tests
             behave features\qa.feature
             ;;
             esac
+
