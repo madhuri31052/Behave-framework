@@ -1,39 +1,57 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-
-name: Python application
+name: try-github-actions
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
+  # push:
+  #   branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      env_name:
+        description: ' Enviroment to test(dev3, qa) '
+        required: true
+        default: 'dev3'
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.10
+    - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: "3.10"
+        python-version: 3.8
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      run: |
-        pytest
+        python -m pip install flake8 pytest
+        pip install behave
+        pip install selenium
+        pip install chromedriver
+        pip install webdriver-manager
+    - name: run behave file
+      env:
+        EMAIL_DB : ${{ secrets.EMAIL_DB }}
+        PASS_DB : ${{ secrets.PASS_DB }}
+    - run: |
+        if [[ ${{ github.event.inputs.env_name }} == 'dev3' ]]; then
+          echo "cd Tests/behave features\dev3.feature"
+        if [[ ${{ github.event.inputs.env_name }} == 'qa' ]]; then
+          echo "cd Tests/behave features\qa.feature"
+        fi
+    # - if: ${{ github.event.inputs.env_name }} == dev3
+    #   run: echo "cd Tests/behave features\dev3.feature"
+    # - if: ${{ github.event.inputs.env_name }} == qa
+    #   run: echo "cd Tests/behave features\qa.feature"
+      # run: |
+      #   case ${{ github.event.inputs.env_name }} in  
+      #       dev3)
+      #       cd Tests
+      #       behave features\dev3.feature
+      #       ;;
+      #       qa)
+      #       cd Tests
+      #       behave features\qa.feature
+      #       ;;
+      #       esac
+      
