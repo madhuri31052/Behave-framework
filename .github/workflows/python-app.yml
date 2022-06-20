@@ -6,11 +6,11 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
-    inputs:
-      env_name:
-        description: ' Enviroment to test(dev3, qa) '
-        required: true
-        default: 'dev3'
+#     inputs:
+#       env_name:
+#         description: ' Enviroment to test(dev3, qa) '
+#         required: true
+#         default: 'dev3'
 
 jobs:
   build:
