@@ -25,6 +25,7 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
         pip install behave
+        pip install git+https://github.com/behave/behave
         pip install selenium
         pip install chromedriver
         pip install webdriver-manager
