@@ -40,7 +40,7 @@ jobs:
         PASS_DB : ${{ secrets.PASS_DB }}
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: |
-            if ( github.event.inputs.env_name == "dev3" ):
+            if ( env_name == "dev3" ):
               cd Tests/behave features\dev3.feature
             else:
               cd Tests/behave features\qa.feature
