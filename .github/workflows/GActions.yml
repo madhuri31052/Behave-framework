@@ -24,16 +24,16 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: 3.8
-    - name: Install dependencies
-      run: |
-        # python -m pip install --upgrade pip
-        # python -m pip install flake8 pytest
-        # pip install -r requirements.txt
-        # pip install case
-        # pip install behave
-        # pip install selenium
-        # pip install chromedriver
-        # pip install webdriver-manager
+    # - name: Install dependencies
+    #   run: |
+    #     python -m pip install --upgrade pip
+    #     python -m pip install flake8 pytest
+    #     pip install -r requirements.txt
+    #     pip install case
+    #     pip install behave
+    #     pip install selenium
+    #     pip install chromedriver
+    #     pip install webdriver-manager
     - name: run behave file
       env:
         EMAIL_DB : ${{ secrets.EMAIL_DB }}
@@ -41,13 +41,16 @@ jobs:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: |
             case ${{ github.event.inputs.env_name }} in  
-            "dev3")
+            "dev3");
             echo cd Tests
             echo behave features\dev3.feature
             ;;
-            "qa")
+            "qa");
             echo cd Tests
             echo behave features\qa.feature
             ;;
             esac
+      # if: ${{ github.event.inputs.env_name }} == "dev3"
+      #     cd Tests/behave features\dev3.feature
+      # elif: ${{ github.event.inputs.env_name }} ==
 
