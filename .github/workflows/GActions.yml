@@ -47,8 +47,8 @@ jobs:
       run: |
             case ${{ github.event.inputs.env_name }} in  
             dev3)
-            cd Tests
-            behave features\dev3.feature
+            echo cd Tests
+            echo behave features\dev3.feature
             ;;
             qa)
             cd Tests
