@@ -3,10 +3,6 @@
 
 name: try-github-actions
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
     inputs:
       env_name:
@@ -28,8 +24,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
-        pip install -r requirements.txt
-        pip install case
         pip install behave
         pip install selenium
         pip install chromedriver
