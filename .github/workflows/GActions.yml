@@ -41,12 +41,12 @@ jobs:
       run: |
             case ${{ github.event.inputs.env_name }} in  
             dev3)
-            echo cd Tests
-            echo behave features\dev3.feature
+            run cd Tests
+            run behave features\dev3.feature
             ;;
             qa)
-            echo cd Tests
-            echo behave features\qa.feature
+            run cd Tests
+            run behave features\qa.feature
             ;;
             esac
       # if: ${{ github.event.inputs.env_name }} == "dev3"
