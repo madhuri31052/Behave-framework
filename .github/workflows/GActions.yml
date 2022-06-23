@@ -41,11 +41,11 @@ jobs:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: |
             case ${{ github.event.inputs.env_name }} in  
-            "dev3");
+            "dev3"
             echo cd Tests
             echo behave features\dev3.feature
             ;;
-            "qa");
+            "qa"
             echo cd Tests
             echo behave features\qa.feature
             ;;
