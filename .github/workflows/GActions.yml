@@ -39,22 +39,22 @@ jobs:
         EMAIL_DB : ${{ secrets.EMAIL_DB }}
         PASS_DB : ${{ secrets.PASS_DB }}
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-      run: |
-            if ( {{github.event.inputs.env_name}} == "dev3" ) { cd Tests/behave features\dev3.feature }
-            else:
-              cd Tests/behave features\qa.feature
-
       # run: |
-      #       case ${{ github.event.inputs.env_name }} in  
-      #       "dev3"
-      #       cd Tests
-      #       behave features\dev3.feature
-      #       ;;
-      #       "qa"
-      #       cd Tests
-      #       behave features\qa.feature
-      #       ;;
-      #       esac
+      #       if ( {{github.event.inputs.env_name}} == "dev3" ) { cd Tests/behave features\dev3.feature }
+      #       else:
+      #         cd Tests/behave features\qa.feature
+
+      run: |
+            case ${{ github.event.inputs.env_name }} in  
+            "dev3"
+            cd Tests
+            behave features\dev3.feature
+            ;;
+            "qa"
+            cd Tests
+            behave features\qa.feature
+            ;;
+            esac
       # if: ${{ github.event.inputs.env_name }} == "dev3"
       #     cd Tests/behave features\dev3.feature
       # elif: ${{ github.event.inputs.env_name }} ==
