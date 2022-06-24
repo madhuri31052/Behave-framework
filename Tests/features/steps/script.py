@@ -7,12 +7,12 @@ from selenium.webdriver.chrome.options import Options
 
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
-    chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    d = webdriver.Chrome('/home/<user>/chromedriver',chrome_options=chrome_options)
-    d.get('https://www.google.nl/')
+    context.chrome_options = Options()
+    context.chrome_options.add_argument('--headless')
+    context.chrome_options.add_argument('--no-sandbox')
+    context.chrome_options.add_argument('--disable-dev-shm-usage')
+    context.d = webdriver.Chrome('/home/<user>/chromedriver',chrome_options=chrome_options)
+    context.d.get('https://www.google.nl/')
     context.driver=webdriver.Chrome(ChromeDriverManager().install() )
     context.driver.maximize_window()
     time.sleep(5)
