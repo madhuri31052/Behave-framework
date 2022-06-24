@@ -12,7 +12,7 @@ def LaunchChrome(context):
     context.chrome_options.add_argument('--headless')
     context.chrome_options.add_argument('--no-sandbox')
     context.chrome_options.add_argument('--disable-dev-shm-usage')
-    context.d = webdriver.Chrome('/home/<user>/chromedriver',chrome_options=chrome_options)
+    context.d = webdriver.Chrome('/home/mckinley/chromedriver',chrome_options=chrome_options)
     context.d.get('https://www.google.nl/')
     context.driver=webdriver.Chrome(ChromeDriverManager().install() )
     context.driver.maximize_window()
