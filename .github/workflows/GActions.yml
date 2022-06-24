@@ -43,10 +43,10 @@ jobs:
             cd Tests
             case ${{ github.event.inputs.env_name }} in  
             dev3)
-            behave features/ features\dev3.feature
+            behave -i dev3.feature
             ;;
             qa)
-            behave features\qa.feature
+            behave -i qa.feature
             ;;
             esac
       # if: ${{ github.event.inputs.env_name }} == "dev3"
