@@ -43,7 +43,7 @@ jobs:
             cd Tests
             case ${{ github.event.inputs.env_name }} in  
             dev3)
-            behave features\dev3.feature
+            behave features/ \dev3.feature
             ;;
             qa)
             behave features\qa.feature
