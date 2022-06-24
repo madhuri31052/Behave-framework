@@ -4,6 +4,7 @@ import time
 import os
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import chrome_options
 
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
