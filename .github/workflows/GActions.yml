@@ -4,7 +4,7 @@
 name: try-github-actions
 on:
   push:
-    branches: [ main, dev, Adding-Tests ]
+    branches: [ main ]
   pull_request:
     branches: [ main, dev, Adding-Tests ]
   workflow_dispatch:
@@ -54,7 +54,7 @@ jobs:
       run: |
             cd Tests
             case ${{ github.event.push.branches }} in  
-            dev3)
+            main)
             behave -i dev3.feature
             ;;
             qa)
