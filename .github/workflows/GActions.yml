@@ -14,18 +14,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/strongarm-tech/satbuildmachine:latest
+      credentials:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITTOKEN }}
+          
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: 3.8
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
         python -m pip install flake8 pytest
         pip install behave
-        pip install git+https://github.com/behave/behave
         pip install selenium
         pip install chromedriver
         pip install webdriver-manager
@@ -34,10 +34,7 @@ jobs:
         EMAIL_DB : ${{ secrets.EMAIL_DB }}
         PASS_DB : ${{ secrets.PASS_DB }}
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-      # run: |
-      #       if ( {{github.event.inputs.env_name}} == "dev3" ) { cd Tests/behave features\dev3.feature }
-      #       else:
-      #         cd Tests/behave features\qa.feature
+
 
       run: |
             cd Tests
@@ -49,7 +46,3 @@ jobs:
             behave -i qa.feature
             ;;
             esac
-      # if: ${{ github.event.inputs.env_name }} == "dev3"
-      #     cd Tests/behave features\dev3.feature
-      # elif: ${{ github.event.inputs.env_name }} ==
-
