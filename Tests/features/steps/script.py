@@ -5,7 +5,6 @@ import os
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
-browser.capabilities = {"goog:chromeOptions": {"args": ["--headless", "--no-sandbox", "--disable-dev-shm-usage"]}}
 
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
