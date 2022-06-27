@@ -18,11 +18,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/strongarm-tech/satbuildmachine:latest
-      credentials:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITTOKEN }}
+    # container:
+    #   image: ghcr.io/strongarm-tech/satbuildmachine:latest
+    #   credentials:
+    #       username: ${{ github.actor }}
+    #       password: ${{ secrets.GITTOKEN }}
           
     steps:
     - uses: actions/checkout@v3
