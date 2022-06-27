@@ -3,10 +3,6 @@
 
 name: try-github-actions
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main, dev, Adding-Tests ]
   workflow_dispatch:
     inputs:
       env_name:
@@ -39,25 +35,15 @@ jobs:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 
-      # run: |
-      #       cd Tests
-      #       case ${{ github.event.inputs.env_name }} in  
-      #       dev3)
-      #       behave -i dev3.feature
-      #       ;;
-      #       qa)
-      #       behave -i qa.feature
-      #       ;;
-      #       esac
-
-
       run: |
             cd Tests
-            case ${{ github.event.push.branches }} in  
-            main)
+            case ${{ github.event.inputs.env_name }} in  
+            dev3)
             behave -i dev3.feature
             ;;
             qa)
             behave -i qa.feature
             ;;
             esac
+
+
