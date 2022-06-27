@@ -6,12 +6,15 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
 
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--window-size=1420,1080')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
+driver = webdriver.Chrome(chrome_options=chrome_options)
+
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
-    context.chrome_options = Options()
-    context.chrome_options.add_argument('--headless')
-    context.chrome_options.add_argument('--no-sandbox')
-    context.chrome_options.add_argument('--disable-dev-shm-usage')
     context.driver=webdriver.Chrome(ChromeDriverManager().install() )
     context.driver.maximize_window()
     time.sleep(5)
