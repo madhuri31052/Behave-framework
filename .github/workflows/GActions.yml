@@ -3,6 +3,10 @@
 
 name: try-github-actions
 on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       env_name:
@@ -14,26 +18,27 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/strongarm-tech/satbuildmachine:latest
-      credentials:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITTOKEN }}
+    # container:
+    #   image: ghcr.io/strongarm-tech/satbuildmachine:latest
+    #   credentials:
+    #       username: ${{ github.actor }}
+    #       password: ${{ secrets.GITTOKEN }}
           
     steps:
     - uses: actions/checkout@v3
+
     - name: Install dependencies
       run: |
         pip install behave
         pip install selenium
         pip install chromedriver
         pip install webdriver-manager
+
     - name: run behave file
       env:
         EMAIL_DB : ${{ secrets.EMAIL_DB }}
         PASS_DB : ${{ secrets.PASS_DB }}
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-
 
       run: |
             cd Tests
@@ -45,5 +50,10 @@ jobs:
             behave -i qa.feature
             ;;
             esac
+            case ${{ github.event.push }} in  
+            main)
+            behave -i dev3.feature
+            ;;
+            esac
 
-
+    
