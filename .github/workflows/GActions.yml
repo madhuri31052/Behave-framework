@@ -3,10 +3,6 @@
 
 name: try-github-actions
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
     inputs:
       env_name:
