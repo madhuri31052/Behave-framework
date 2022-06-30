@@ -25,6 +25,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        pip install -U urllib3 requests
         pip install behave
         pip install selenium
         pip install chromedriver
