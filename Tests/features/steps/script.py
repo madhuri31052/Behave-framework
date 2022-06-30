@@ -15,7 +15,8 @@ driver = webdriver.Chrome(chrome_options=chrome_options)
 
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
-    context.driver=webdriver.Chrome(ChromeDriverManager().install() ).get('https://www.google.com/')
+    context.driver=webdriver.Chrome(ChromeDriverManager().install() )
+    context.driver.get('https://www.google.com/')
     context.driver.maximize_window()
     time.sleep(5)
 
