@@ -50,10 +50,7 @@ jobs:
             behave -i qa.feature
             ;;
             esac
-            case ${{ github.event.push }} in  
-            main)
-            behave -i dev3.feature
-            ;;
-            esac
+
+
 
     

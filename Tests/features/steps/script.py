@@ -11,7 +11,8 @@ chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--window-size=1420,1080')
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
-driver = webdriver.Chrome(chrome_options=chrome_options)
+d = webdriver.Chrome('/home/mckinley/chromedriver',chrome_options=chrome_options)
+d.get('https://www.google.nl/')
 
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
