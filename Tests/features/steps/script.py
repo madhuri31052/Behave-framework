@@ -2,6 +2,7 @@ from behave import *
 from selenium import webdriver
 import time
 import os
+from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from pyvirtualdisplay import Display
 
@@ -14,25 +15,10 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
 driver = webdriver.Chrome(chrome_options=chrome_options)
 
-# chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument('--no-sandbox')
-# chrome_options.add_argument('--window-size=1420,1080')
-# chrome_options.add_argument('--headless')
-# chrome_options.add_argument('--disable-gpu')
-# driver = webdriver.Chrome(chrome_options=chrome_options)
 
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
     context.driver = webdriver.Chrome(ChromeDriverManager().install())
-    # context.chrome_options = webdriver.ChromeOptions()
-    # context.chrome_options.add_argument('--no-sandbox')
-    # context.chrome_options.add_argument('--window-size=1420,1080')
-    # context.chrome_options.add_argument('--headless')
-    # context.chrome_options.add_argument('--disable-gpu')
-    # context.driver = webdriver.Chrome(chrome_options=chrome_options)
-    # context.browser.get("https://www.google.com")
-    # context.opts.set_headless(True)
-    context.driver.maximize_window()
     time.sleep(5)
 
 @when('Go to Safework login page')
@@ -43,8 +29,8 @@ def SafewordDashboard(context):
 
 @when('Enters "{email}" and "{pwd}"')
 def EnterCred(context, email, pwd):
-    context.driver.find_element_by_id("username").send_keys(email)
-    context.driver.find_element_by_id("password").send_keys(pwd)
+    context.driver.find_element(By.ID, "username").send_keys(email)
+    context.driver.find_element(By.ID, "password").send_keys(pwd)
     time.sleep(5)
 
 email = os.environ.get('Email_DB')
@@ -52,24 +38,24 @@ pwd = os.environ.get('Pass_DB')
 
 @when('Enter Email_DB and Pass_DB')
 def EnterCred(context):
-    context.driver.find_element_by_id("username").send_keys(email)
-    context.driver.find_element_by_id("password").send_keys(pwd)
+    context.driver.find_element(By.ID, "username").send_keys(email)
+    context.driver.find_element(By.ID, "password").send_keys(pwd)
     time.sleep(5)
 
 @when('Click on login button')
 def LoginButton(context):
-    context.driver.find_element_by_xpath("//span[text()='Login']").click()
+    context.driver.find_element(By.XPATH, "//span[text()='Login']").click()
     time.sleep(9)
 
 @then('User should be logged in')
 def login(context):
-    context.driver.find_element_by_xpath("//p[contains(text(),'Go to')]").is_displayed()
+    context.driver.find_element(By.XPATH, "//p[contains(text(),'Go to')]").is_displayed()
     assert True
     time.sleep(9)
 
 @then('User should not be able to login')
 def LoginCheck(context):
-    if context.driver.find_element_by_xpath("//body/div[@id='root']/div[1]/div[1]/div[1]/form[1]/div[1]/*[1]").is_displayed():
+    if context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[1]/form[1]/div[1]/*[1]").is_displayed():
         context.driver.close()
         assert True, "Test Passed"
     else:
@@ -78,33 +64,33 @@ def LoginCheck(context):
     
 @when('Click on Multibox tab')
 def MultiboxTab(context):
-    context.driver.find_element_by_xpath("//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]").click()
+    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]").click()
     time.sleep(5)
 
 @when('Click on Signout tab')
 def SignoutTab(context):
-    context.driver.find_element_by_xpath("//p[contains(text(),'Sign out')]").click()
+    context.driver.find_element(By.XPATH, "//p[contains(text(),'Sign out')]").click()
     time.sleep(5)
 
 @then('User should be signed out')
 def Signedout(context):
-    context.driver.find_element_by_xpath("//body/div[@id='root']/div[1]/div[1]/div[1]/form[1]/div[1]/*[1]").is_displayed()
+    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[1]/form[1]/div[1]/*[1]").is_displayed()
     assert True
     context.driver.close()
 
 @when('Select Analytics tab')
 def AnalyticsTab(context):
-    context.driver.find_element_by_xpath("//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/button[1]/span[1]").click()
+    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/button[1]/span[1]").click()
     time.sleep(12)
 
 @when('On Ergonomic Safety Dashboard click on Select Athlete dropdown')
 def select(context):
-    context.driver.find_element_by_xpath("//div[@id='Select AthleteSelect']").click()
+    context.driver.find_element(By.XPATH, "//div[@id='Select AthleteSelect']").click()
     time.sleep(5)
 
 @then('User should not be able to Select an Athlete')
 def dropdown(context):
-    visible1 = context.driver.find_element_by_xpath("//div[@id='Select AthleteSelect']")
+    visible1 = context.driver.find_element(By.XPATH, "//div[@id='Select AthleteSelect']")
     if visible1.is_displayed():
         context.driver.close()
         assert True, "Test Passed"
@@ -114,17 +100,17 @@ def dropdown(context):
 
 @when('Click on Fuse Dashboard tab')
 def fuseTab(context):
-    context.driver.find_element_by_xpath("//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/*[1]").click()
+    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/*[1]").click()
     time.sleep(8)
 
 @when('Select New Hire Tenure Analysis')
 def hiretenure(context):
-    context.driver.find_element_by_xpath("//span[contains(text(),'New Hire Tenure Analysis')]").click()
+    context.driver.find_element(By.XPATH, "//span[contains(text(),'New Hire Tenure Analysis')]").click()
     time.sleep(10)
 
 @then('User should be able to see Highest Risk Tenure Group tile')
 def Tile(context):
-    visible2 = context.driver.find_element_by_xpath("//h6[contains(text(),'Highest Risk Tenure Group')]")
+    visible2 = context.driver.find_element(By.XPATH, "//h6[contains(text(),'Highest Risk Tenure Group')]")
     if visible2.is_displayed():
         context.driver.close()
         assert True, "Test Passed"
@@ -134,16 +120,16 @@ def Tile(context):
 
 @when('Select corporate report tab')
 def reportTab(context):
-    context.driver.find_element_by_xpath("//span[contains(text(), 'Corporate Report')]").click()
+    context.driver.find_element(By.XPATH, "//span[contains(text(), 'Corporate Report')]").click()
     time.sleep(12)
 
 @when('Click on sort icon of Warehouse')
 def warehouse(context):
-    context.driver.find_element_by_xpath("//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/*[1]").click()
+    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/*[1]").click()
     time.sleep(5)
 
 @then('User should be able to sort')
 def sortIcon(context):
-    context.driver.find_element_by_xpath("//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]").is_displayed()
+    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]").is_displayed()
     assert True
     context.driver.close()
