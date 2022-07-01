@@ -23,6 +23,7 @@ def LaunchChrome(context):
     context.chrome_options.add_argument('--disable-gpu')
     context.driver = webdriver.Chrome(chrome_options=chrome_options)
     context.browser.get("https://www.google.com")
+    context.opts.set_headless(True)
     context.driver.maximize_window()
     time.sleep(5)
 
