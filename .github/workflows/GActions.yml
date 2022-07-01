@@ -36,8 +36,6 @@ jobs:
       env:
         EMAIL_DB : ${{ secrets.EMAIL_DB }}
         PASS_DB : ${{ secrets.PASS_DB }}
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-
       run: |
             cd Tests
             case ${{ github.event.inputs.env_name }} in  
