@@ -24,6 +24,8 @@ jobs:
 
     - name: Install dependencies
       run: |
+        pip install -U urllib3 requests
+        pip install --user --upgrade selenium
         pip install pyvirtualdisplay
         pip install behave
         pip install selenium
