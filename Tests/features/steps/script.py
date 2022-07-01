@@ -3,8 +3,16 @@ from selenium import webdriver
 import time
 import os
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
+from pyvirtualdisplay import Display
 
+display = Display(visible=0, size=(1024, 768))
+display.start()
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
+self.driver = webdriver.Chrome(chrome_options=chrome_options)
 
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument('--no-sandbox')
@@ -16,14 +24,14 @@ from selenium.webdriver.chrome.options import Options
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
     context.driver = webdriver.Chrome(ChromeDriverManager().install())
-    context.chrome_options = webdriver.ChromeOptions()
-    context.chrome_options.add_argument('--no-sandbox')
-    context.chrome_options.add_argument('--window-size=1420,1080')
-    context.chrome_options.add_argument('--headless')
-    context.chrome_options.add_argument('--disable-gpu')
-    context.driver = webdriver.Chrome(chrome_options=chrome_options)
-    context.browser.get("https://www.google.com")
-    context.opts.set_headless(True)
+    # context.chrome_options = webdriver.ChromeOptions()
+    # context.chrome_options.add_argument('--no-sandbox')
+    # context.chrome_options.add_argument('--window-size=1420,1080')
+    # context.chrome_options.add_argument('--headless')
+    # context.chrome_options.add_argument('--disable-gpu')
+    # context.driver = webdriver.Chrome(chrome_options=chrome_options)
+    # context.browser.get("https://www.google.com")
+    # context.opts.set_headless(True)
     context.driver.maximize_window()
     time.sleep(5)
 
