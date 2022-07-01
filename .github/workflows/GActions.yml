@@ -10,7 +10,6 @@ on:
         required: true
         default: 'dev3'
       
-    
 jobs:
   build:
     runs-on: ubuntu-latest
