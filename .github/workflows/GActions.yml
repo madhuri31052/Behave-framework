@@ -3,6 +3,10 @@
 
 name: try-github-actions
 on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       env_name:
@@ -46,6 +50,13 @@ jobs:
             behave -i qa.feature
             ;;
             esac
+        
+    - name: run on push
+      run: |
+            cd Tests
+            if ${{ github.event.push }} is true:
+            behave -i dev3.feature
+
 
 
 
