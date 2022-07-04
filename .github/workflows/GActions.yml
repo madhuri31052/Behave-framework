@@ -26,39 +26,40 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: |
-        pip install -U urllib3 requests
-        pip install --user --upgrade selenium
-        pip install pyvirtualdisplay
-        pip install behave
-        pip install selenium
-        pip install chromedriver
-        pip install webdriver-manager
+    # - name: Install dependencies
+    #   run: |
+    #     pip install -U urllib3 requests
+    #     pip install --user --upgrade selenium
+    #     pip install pyvirtualdisplay
+    #     pip install behave
+    #     pip install selenium
+    #     pip install chromedriver
+    #     pip install webdriver-manager
 
-    - name: run behave file
-      env:
-        EMAIL_DB : ${{ secrets.EMAIL_DB }}
-        PASS_DB : ${{ secrets.PASS_DB }}
-      run: |
-            cd Tests
-            case ${{ github.event.inputs.env_name }} in  
-            dev3)
-            behave -i dev3.feature
-            ;;
-            qa)
-            behave -i qa.feature
-            ;;
-            esac
+    # - name: run behave file
+    #   env:
+    #     EMAIL_DB : ${{ secrets.EMAIL_DB }}
+    #     PASS_DB : ${{ secrets.PASS_DB }}
+    #   run: |
+    #         cd Tests
+    #         case ${{ github.event.inputs.env_name }} in  
+    #         dev3)
+    #         behave -i dev3.feature
+    #         ;;
+    #         qa)
+    #         behave -i qa.feature
+    #         ;;
+    #         esac
         
     - name: run on push
       run: |
-            cd Tests
-            if ${{ github.event.push }} is true:
-            behave -i dev3.feature
+            ${{ github.event.push }}
 
-
-
+    # - name: run on push
+    #   run: |
+    #         cd Tests
+    #         if ${{ github.event.push }} is true:
+    #         behave -i dev3.feature
 
 
     
