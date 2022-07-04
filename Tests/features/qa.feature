@@ -11,14 +11,14 @@ Feature: workin on Automation
     #     | email1 | pwd1 |
     #     | email2 | pwd2 |
 
-    Scenario: Login and logout on Safework Dashboard with valid credentials
-        Given Launch Chrome Browser
-        When Go to Safework login page
-        And Enter EMAIL_DB and PASS_DB
-        And Click on login button
-        And Click on Multibox tab
-        And Click on Signout tab
-        Then User should be signed out
+    # Scenario: Login and logout on Safework Dashboard with valid credentials
+    #     Given Launch Chrome Browser
+    #     When Go to Safework login page
+    #     And Enter EMAIL_DB and PASS_DB
+    #     And Click on login button
+    #     And Click on Multibox tab
+    #     And Click on Signout tab
+    #     Then User should be signed out
 
     # Scenario: Check dropdown is working in Ergonomics report
     #     Given Launch Chrome Browser
@@ -39,13 +39,13 @@ Feature: workin on Automation
     #     And Select New Hire Tenure Analysis 
     #     Then User should be able to see Highest Risk Tenure Group tile
 
-    # Scenario: Check sorting icon is enabled to corporate report
-    #     Given Launch Chrome Browser
-    #     When Go to Safework login page
-    #     And Enter EMAIL_DB and PASS_DB
-    #     And Click on login button
-    #     And Select Analytics tab
-    #     And Click on Fuse Dashboard tab
-    #     And Select corporate report tab
-    #     And Click on sort icon of Warehouse
-    #     Then User should be able to sort
+    Scenario: Check sorting icon is enabled to corporate report
+        Given Launch Chrome Browser
+        When Go to Safework login page
+        And Enter EMAIL_DB and PASS_DB
+        And Click on login button
+        And Select Analytics tab
+        And Click on Fuse Dashboard tab
+        And Select corporate report tab
+        And Click on sort icon of Warehouse
+        Then User should be able to sort

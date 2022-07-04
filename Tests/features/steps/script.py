@@ -9,13 +9,6 @@ from pyvirtualdisplay import Display
 display = Display(visible=0, size=(1024, 768))
 display.start()
 
-# chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument('--no-sandbox')
-# chrome_options.add_argument('--headless')
-# chrome_options.add_argument('--disable-gpu')
-# driver = webdriver.Chrome(chrome_options=chrome_options)
-
-
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
     context.driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -25,16 +18,6 @@ def LaunchChrome(context):
 def SafewordDashboard(context):
     context.driver.get("https://qa.strongarmtech.com/login")
     time.sleep(5)
-
-
-@when('Enters "{email}" and "{pwd}"')
-def EnterCred(context, email, pwd):
-    context.driver.find_element(By.ID, "username").send_keys(email)
-    context.driver.find_element(By.ID, "password").send_keys(pwd)
-    time.sleep(5)
-
-email = os.environ.get('EMAIL_DB')
-pwd = os.environ.get('PASS_DB')
 
 @when('Enter EMAIL_DB and PASS_DB')
 def EnterCred(context):
@@ -130,6 +113,13 @@ def warehouse(context):
 
 @then('User should be able to sort')
 def sortIcon(context):
-    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]").is_displayed()
-    assert True
+    # context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]").is_displayed()
+    # assert True
+    visible3 = context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]")
+    if visible3.is_displayed():
+        context.driver.close()
+        assert False, "Test Failed"
+    else:
+        context.driver.close()
+        assert True, "Test Passed"
     context.driver.close()
