@@ -53,7 +53,7 @@ jobs:
         
     - name: run on push
       run: |
-            ${{ github.event.push }}
+            ${{ github.event.on.push }}
 
     # - name: run on push
     #   run: |
