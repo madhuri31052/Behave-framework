@@ -19,13 +19,13 @@ def SafewordDashboard(context):
     context.driver.get("https://qa.strongarmtech.com/login")
     time.sleep(5)
 
-email = os.environ.get('EMAIL_DB')
-pwd = os.environ.get('PASS_DB')
+# email = os.environ.get('EMAIL_DB')
+# pwd = os.environ.get('PASS_DB')
 
 @when('Enter EMAIL_DB and PASS_DB')
 def EnterCred(context):
-    context.driver.find_element(By.ID, "username").send_keys(email)
-    context.driver.find_element(By.ID, "password").send_keys(pwd)
+    context.driver.find_element(By.ID, "username").send_keys(EMAIL_DB)
+    context.driver.find_element(By.ID, "password").send_keys(PASS_DB)
     time.sleep(5)
 
 @when('Click on login button')
