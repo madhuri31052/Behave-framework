@@ -14,7 +14,7 @@ Feature: workin on Automation
     Scenario: Login and logout on Safework Dashboard with valid credentials
         Given Launch Chrome Browser
         When Go to Safework login page
-        And Enter Email_DB and Pass_DB
+        And Enter EMAIL_DB and PASS_DB
         And Click on login button
         And Click on Multibox tab
         And Click on Signout tab
@@ -23,7 +23,7 @@ Feature: workin on Automation
     # Scenario: Check dropdown is working in Ergonomics report
     #     Given Launch Chrome Browser
     #     When Go to Safework login page
-    #     And Enter Email_DB and Pass_DB
+    #     And Enter EMAIL_DB and PASS_DB
     #     And Click on login button
     #     And Select Analytics tab
     #     And On Ergonomic Safety Dashboard click on Select Athlete dropdown
@@ -32,7 +32,7 @@ Feature: workin on Automation
     # Scenario: Check Highest Risk Tenure Group tile is present
     #     Given Launch Chrome Browser
     #     When Go to Safework login page
-    #     And Enter Email_DB and Pass_DB
+    #     And Enter EMAIL_DB and PASS_DB
     #     And Click on login button
     #     And Select Analytics tab
     #     And Click on Fuse Dashboard tab
@@ -42,7 +42,7 @@ Feature: workin on Automation
     # Scenario: Check sorting icon is enabled to corporate report
     #     Given Launch Chrome Browser
     #     When Go to Safework login page
-    #     And Enter Email_DB and Pass_DB
+    #     And Enter EMAIL_DB and PASS_DB
     #     And Click on login button
     #     And Select Analytics tab
     #     And Click on Fuse Dashboard tab

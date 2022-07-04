@@ -33,10 +33,10 @@ def EnterCred(context, email, pwd):
     context.driver.find_element(By.ID, "password").send_keys(pwd)
     time.sleep(5)
 
-email = os.environ.get('Email_DB')
-pwd = os.environ.get('Pass_DB')
+email = os.environ.get('EMAIL_DB')
+pwd = os.environ.get('PASS_DB')
 
-@when('Enter Email_DB and Pass_DB')
+@when('Enter EMAIL_DB and PASS_DB')
 def EnterCred(context):
     context.driver.find_element(By.ID, "username").send_keys(email)
     context.driver.find_element(By.ID, "password").send_keys(pwd)

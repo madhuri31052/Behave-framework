@@ -33,6 +33,9 @@ jobs:
         pip install webdriver-manager
 
     - name: run behave file
+      env:
+        EMAIL_DB : ${{ secrets.EMAIL_DB }}
+        PASS_DB : ${{ secrets.PASS_DB }}
       run: |
             cd Tests
             case ${{ github.event.inputs.env_name }} in  
@@ -43,9 +46,7 @@ jobs:
             behave -i qa.feature
             ;;
             esac
-      env:
-        EMAIL_DB : ${{ secrets.EMAIL_DB }}
-        PASS_DB : ${{ secrets.PASS_DB }}
+
 
 
 
