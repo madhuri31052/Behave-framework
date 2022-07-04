@@ -33,11 +33,11 @@ def LoginButton(context):
     context.driver.find_element(By.XPATH, "//span[text()='Login']").click()
     time.sleep(9)
 
-@then('User should be logged in')
-def login(context):
-    context.driver.find_element(By.XPATH, "//p[contains(text(),'Go to')]").is_displayed()
-    assert True
-    time.sleep(9)
+# @then('User should be logged in')
+# def login(context):
+#     context.driver.find_element(By.XPATH, "//p[contains(text(),'Go to')]").is_displayed()
+#     assert True
+#     time.sleep(9)
 
 @then('User should not be able to login')
 def LoginCheck(context):
