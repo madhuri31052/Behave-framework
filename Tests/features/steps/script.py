@@ -19,11 +19,8 @@ def SafewordDashboard(context):
     context.driver.get("https://qa.strongarmtech.com/login")
     time.sleep(5)
 
-# email = os.environ.get('EMAIL_DB')
-# pwd = os.environ.get('PASS_DB')
-
-email = secrets.EMAIL_DB
-pwd = secrets.PASS_DB
+email = os.environ.get('EMAIL_DB')
+pwd = os.environ.get('PASS_DB')
 
 @when('Enter EMAIL_DB and PASS_DB')
 def EnterCred(context):
