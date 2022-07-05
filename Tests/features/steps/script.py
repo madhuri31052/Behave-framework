@@ -125,10 +125,10 @@ def sortIcon(context):
     visible3 = context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]")
     if visible3.is_displayed():
         context.driver.close()
-        assert True, "Test Passed"
+        assert False, "Test Failed"
     else:
         context.driver.close()
-        assert False, "Test Failed"
+        assert True, "Test Passed"
 
 
 #dev3 env credentials
@@ -146,3 +146,13 @@ def EnterCred(context):
     context.driver.find_element(By.ID, "username").send_keys(email)
     context.driver.find_element(By.ID, "password").send_keys(pwd)
     time.sleep(5)
+
+@then('User should be able to sort')
+def sortIcon(context):
+    visible3 = context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]")
+    if visible3.is_displayed():
+        context.driver.close()
+        assert True, "Test Passed"
+    else:
+        context.driver.close()
+        assert False, "Test Failed"
