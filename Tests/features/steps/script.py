@@ -129,7 +129,6 @@ def sortIcon(context):
     else:
         context.driver.close()
         assert False, "Test Failed"
-    context.driver.close()
 
 
 #dev3 env
