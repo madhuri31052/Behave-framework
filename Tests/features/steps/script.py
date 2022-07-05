@@ -21,8 +21,8 @@ def SafewordDashboard(context):
 
 @when('Enters "{email}" and "{pwd}"')
 def EnterCred(context, email, pwd):
-    context.driver.find_element_by_id("username").send_keys(email)
-    context.driver.find_element_by_id("password").send_keys(pwd)
+    context.driver.find_element(By.ID, "username").send_keys(email)
+    context.driver.find_element(By.ID,"password").send_keys(pwd)
     time.sleep(5)
 
 email = os.environ.get('QA_CRED_EMAIL')
