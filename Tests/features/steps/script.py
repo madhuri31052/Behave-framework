@@ -131,7 +131,7 @@ def sortIcon(context):
         assert False, "Test Failed"
 
 
-#dev3 env
+#dev3 env credentials
 
 @when('Go to dev3 login page')
 def SafewordDashboard(context):
