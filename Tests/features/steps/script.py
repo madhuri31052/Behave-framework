@@ -80,7 +80,7 @@ def select(context):
     context.driver.find_element(By.XPATH, "//div[@id='Select AthleteSelect']").click()
     time.sleep(5)
 
-@then('User should not be able to Select an Athlete')
+@then('User should not be able to Select an Athlete before selecting Warehouse')
 def dropdown(context):
     visible1 = context.driver.find_element(By.XPATH, "//div[@id='Select AthleteSelect']")
     if visible1.is_displayed():
