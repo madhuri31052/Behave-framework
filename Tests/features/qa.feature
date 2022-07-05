@@ -48,4 +48,4 @@ Feature: Test cases for testing qa environment
         And Click on Fuse Dashboard tab
         And Select corporate report tab
         And Click on sort icon of Warehouse
-        Then User should be able to sort
+        Then User should be able to sort in qa env

@@ -120,7 +120,7 @@ def warehouse(context):
     context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/*[1]").click()
     time.sleep(5)
 
-@then('User should be able to sort')
+@then('User should be able to sort in qa env')
 def sortIcon(context):
     visible3 = context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]")
     if visible3.is_displayed():
@@ -147,7 +147,7 @@ def EnterCred(context):
     context.driver.find_element(By.ID, "password").send_keys(pwd)
     time.sleep(5)
 
-@then('User should be able to sort')
+@then('User should be able to sort in dev3 env')
 def sortIcon(context):
     visible3 = context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]")
     if visible3.is_displayed():
