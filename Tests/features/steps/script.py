@@ -19,10 +19,16 @@ def SafewordDashboard(context):
     context.driver.get("https://qa.strongarmtech.com/login")
     time.sleep(5)
 
-email = os.environ.get('EMAIL_DB')
-pwd = os.environ.get('PASS_DB')
+@when('Enters "{email}" and "{pwd}"')
+def EnterCred(context, email, pwd):
+    context.driver.find_element_by_id("username").send_keys(email)
+    context.driver.find_element_by_id("password").send_keys(pwd)
+    time.sleep(5)
 
-@when('Enter EMAIL_DB and PASS_DB')
+email = os.environ.get('QA_CRED_EMAIL')
+pwd = os.environ.get('QA_CRED_PASS')
+
+@when('Enter QA_CRED_EMAIL and QA_CRED_PASS')
 def EnterCred(context):
     context.driver.find_element(By.ID, "username").send_keys(email)
     context.driver.find_element(By.ID, "password").send_keys(pwd)
@@ -33,11 +39,11 @@ def LoginButton(context):
     context.driver.find_element(By.XPATH, "//span[text()='Login']").click()
     time.sleep(9)
 
-# @then('User should be logged in')
-# def login(context):
-#     context.driver.find_element(By.XPATH, "//p[contains(text(),'Go to')]").is_displayed()
-#     assert True
-#     time.sleep(9)
+@then('User should be logged in')
+def login(context):
+    context.driver.find_element(By.XPATH, "//p[contains(text(),'Go to')]").is_displayed()
+    assert True
+    time.sleep(9)
 
 @then('User should not be able to login')
 def LoginCheck(context):
@@ -126,3 +132,20 @@ def sortIcon(context):
         context.driver.close()
         assert True, "Test Passed"
     context.driver.close()
+
+
+#dev3 env
+
+@when('Go to dev3 login page')
+def SafewordDashboard(context):
+    context.driver.get("https://strongarm.dev3.strongarmtech.com/login")
+    time.sleep(5)
+
+email = os.environ.get('DEV3_CRED_EMAIL')
+pwd = os.environ.get('DEV3_CRED_PASS')
+
+@when('Enter DEV3_CRED_EMAIL and DEV3_CRED_PASS')
+def EnterCred(context):
+    context.driver.find_element(By.ID, "username").send_keys(email)
+    context.driver.find_element(By.ID, "password").send_keys(pwd)
+    time.sleep(5)
