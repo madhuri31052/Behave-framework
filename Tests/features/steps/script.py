@@ -56,7 +56,7 @@ def LoginCheck(context):
     
 @when('Click on Multibox tab')
 def MultiboxTab(context):
-    context.driver.find_element(By.CSS_SELECTOR, "div.jss233 div.MuiBox-root.jss238 div.MuiBox-root.jss239 svg:nth-child(1) > path:nth-child(1)").click()
+    context.driver.find_element(By.XPATH, "//body[1]/div[1]/div[1]/div[1]/div[3]/div[1]/svg[1]/path[1]").click()
     time.sleep(5)
 
 @when('Click on Signout tab')
@@ -72,7 +72,7 @@ def Signedout(context):
 
 @when('Select Analytics tab')
 def AnalyticsTab(context):
-    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/button[1]/span[1]/div[1]/*[1]").click()
+    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/button[1]").click()
     time.sleep(12)
                                            
 @when('On Ergonomic Safety Dashboard click on Select Athlete dropdown')
