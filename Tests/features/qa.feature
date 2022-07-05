@@ -27,7 +27,7 @@ Feature: Test cases for testing qa environment
         And Click on login button
         And Select Analytics tab
         And On Ergonomic Safety Dashboard click on Select Athlete dropdown
-        Then User should not be able to Select an Athlete
+        Then User should not be able to Select an Athlete before selecting Warehouse
 
     Scenario: Check Highest Risk Tenure Group tile is present
         Given Launch Chrome Browser
