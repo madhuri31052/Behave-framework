@@ -1,25 +1,25 @@
 Feature: Test cases for testing Dev3 environment 
 
-    Scenario Outline: Test login to dev3 Dashboard with invalid credentials
+    # Scenario Outline: Test login to dev3 Dashboard with invalid credentials
+    #     Given Launch Chrome Browser
+    #     When Go to dev3 login page
+    #     And Enters "<Email>" and "<Password>"
+    #     And Click on login button
+    #     Then User should not be able to login
+    #     Examples: dummy data
+    #     | Email | Password |
+    #     | email1 | pwd1@123 |
+    #     | email2 | pwd2@123 |
+
+
+    Scenario: Login and logout on dev3 Dashboard with valid credentials
         Given Launch Chrome Browser
         When Go to dev3 login page
-        And Enters "<Email>" and "<Password>"
+        And Enter DEV3_CRED_EMAIL and DEV3_CRED_PASS
         And Click on login button
-        Then User should not be able to login
-        Examples: dummy data
-        | Email | Password |
-        | email1 | pwd1@123 |
-        | email2 | pwd2@123 |
-
-
-#     Scenario: Login and logout on dev3 Dashboard with valid credentials
-#         Given Launch Chrome Browser
-#         When Go to dev3 login page
-#         And Enter DEV3_CRED_EMAIL and DEV3_CRED_PASS
-#         And Click on login button
-#         And Click on Multibox tab
-#         And Click on Signout tab
-#         Then User should be signed out
+        And Click on Multibox tab
+        And Click on Signout tab
+        Then User should be signed out
 
 #     Scenario: Check dropdown is working in Ergonomics report
 #         Given Launch Chrome Browser
