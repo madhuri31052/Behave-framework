@@ -68,7 +68,6 @@ def SignoutTab(context):
 def Signedout(context):
     context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[1]/form[1]/div[1]/*[1]").is_displayed()
     assert True
-    context.driver.close()
 
 @when('Select Analytics tab')
 def AnalyticsTab(context):
@@ -125,10 +124,10 @@ def sortIcon(context):
     visible3 = context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]")
     if visible3.is_displayed():
         context.driver.close()
-        assert False, "Test Failed"
+        assert True, "Test Passed"
     else:
         context.driver.close()
-        assert True, "Test Passed"
+        assert False, "Test Failed"
 
 
 #dev3 env credentials
@@ -149,8 +148,8 @@ def EnterCred(context):
 
 @then('User should be able to sort in dev3 env')
 def sortIcon(context):
-    visible3 = context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]")
-    if visible3.is_displayed():
+    visible4 = context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]")
+    if visible4.is_displayed():
         context.driver.close()
         assert True, "Test Passed"
     else:
