@@ -21,24 +21,24 @@ Feature: Test cases for testing Dev3 environment
     #     And Click on Signout tab
     #     Then User should be signed out
 
-    Scenario: Check user is able to select an Athlete before selecting Warehouse
+    # Scenario: Check user is able to select an Athlete before selecting Warehouse
+    #     Given Launch Chrome Browser
+    #     When Go to dev3 login page
+    #     And Enter DEV3_CRED_EMAIL and DEV3_CRED_PASS
+    #     And Click on login button
+    #     And Select Analytics tab
+    #     And On Ergonomic Safety Dashboard click on Select Athlete dropdown
+    #     Then User should not be able to Select an Athlete before selecting Warehouse
+
+    Scenario: Check Highest Risk Tenure Group tile is present
         Given Launch Chrome Browser
         When Go to dev3 login page
         And Enter DEV3_CRED_EMAIL and DEV3_CRED_PASS
         And Click on login button
         And Select Analytics tab
-        And On Ergonomic Safety Dashboard click on Select Athlete dropdown
-        Then User should not be able to Select an Athlete before selecting Warehouse
-
-#     Scenario: Check Highest Risk Tenure Group tile is present
-#         Given Launch Chrome Browser
-#         When Go to dev3 login page
-#         And Enter DEV3_CRED_EMAIL and DEV3_CRED_PASS
-#         And Click on login button
-#         And Select Analytics tab
-#         And Click on Fuse Dashboard tab
-#         And Select New Hire Tenure Analysis 
-#         Then User should be able to see Highest Risk Tenure Group tile
+        And Click on Fuse Dashboard tab
+        And Select New Hire Tenure Analysis 
+        Then User should be able to see Highest Risk Tenure Group tile
 
 #     Scenario: Check sorting icon is enabled to corporate report
 #         Given Launch Chrome Browser
