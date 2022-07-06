@@ -39,7 +39,7 @@ def EnterCred(context):
 @when('Click on login button')
 def LoginButton(context):
     context.driver.find_element(By.XPATH, "//span[text()='Login']").click()
-    time.sleep(20)
+    time.sleep(12)
 
 @then('User should be logged in')
 def login(context):
@@ -60,7 +60,7 @@ def LoginCheck(context):
 def MultiboxTab(context):
     context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]").click()
     # WebDriverWait(driver,30).until(EC.presence_of_element_located((By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]/*[1]"))).click()
-    time.sleep(8)
+    time.sleep(12)
 
 @when('Click on Signout tab')
 def SignoutTab(context):
