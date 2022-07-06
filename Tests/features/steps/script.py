@@ -3,6 +3,8 @@ from selenium import webdriver
 import time
 import os
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from pyvirtualdisplay import Display
 
@@ -56,7 +58,8 @@ def LoginCheck(context):
     
 @when('Click on Multibox tab')
 def MultiboxTab(context):
-    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]/*[1]").click()
+    # context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]/*[1]").click()
+    context.WebDriverWait(driver,30).until(EC.presence_of_element_located((By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]/*[1]"))).click()
     time.sleep(5)
 
 @when('Click on Signout tab')
@@ -71,7 +74,8 @@ def Signedout(context):
 
 @when('Select Analytics tab')
 def AnalyticsTab(context):
-    context.driver.find_element(By.XPATH, "//p[contains(text(),'Analytics')]").click()
+    # context.driver.find_element(By.XPATH, "//p[contains(text(),'Analytics')]").click()
+    context.WebDriverWait(driver,30).until(EC.presence_of_element_located((By.XPATH, "//p[contains(text(),'Analytics')]"))).click()
     time.sleep(12)
                                                   
 @when('On Ergonomic Safety Dashboard click on Select Athlete dropdown')

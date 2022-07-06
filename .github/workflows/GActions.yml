@@ -34,7 +34,6 @@ jobs:
         pip install selenium
         pip install chromedriver
         pip install webdriver-manager
-        pip install chromedriver-autoinstaller
 
     - name: run behave file
       env:
