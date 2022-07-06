@@ -39,7 +39,7 @@ def EnterCred(context):
 @when('Click on login button')
 def LoginButton(context):
     context.driver.find_element(By.XPATH, "//span[text()='Login']").click()
-    time.sleep(9)
+    time.sleep(12)
 
 @then('User should be logged in')
 def login(context):
@@ -52,11 +52,9 @@ def LoginCheck(context):
     if context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[1]/form[1]/div[1]/*[1]").is_displayed():
         context.driver.close()
         assert True, "Test Passed"
-        time.sleep(8)
     else:
         context.driver.close()
         assert False, "Test Failed"
-    
     
 @when('Click on Multibox tab')
 def MultiboxTab(context):
@@ -92,7 +90,6 @@ def dropdown(context):
     if visible1.is_displayed():
         context.driver.close()
         assert True, "Test Passed"
-        time.sleep(5)
     else: 
         context.driver.close()
         assert False, "Test Failed"
@@ -113,7 +110,6 @@ def Tile(context):
     if visible2.is_displayed():
         context.driver.close()
         assert True, "Test Passed"
-        time.sleep(5)
     else:
         context.driver.close()
         assert False, "Test Failed"
@@ -134,7 +130,6 @@ def sortIcon(context):
     if visible3.is_displayed():
         context.driver.close()
         assert True, "Test Passed"
-        time.sleep(5)
     else:
         context.driver.close()
         assert False, "Test Failed"
@@ -162,7 +157,6 @@ def sortIcon(context):
     if visible4.is_displayed():
         context.driver.close()
         assert True, "Test Passed"
-        time.sleep(5)
     else:
         context.driver.close()
         assert False, "Test Failed"
