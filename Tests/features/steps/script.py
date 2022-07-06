@@ -39,7 +39,7 @@ def EnterCred(context):
 @when('Click on login button')
 def LoginButton(context):
     context.driver.find_element(By.XPATH, "//span[text()='Login']").click()
-    time.sleep(12)
+    time.sleep(20)
 
 @then('User should be logged in')
 def login(context):
