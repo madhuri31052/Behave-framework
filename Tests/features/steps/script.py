@@ -52,10 +52,11 @@ def LoginCheck(context):
     if context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[1]/form[1]/div[1]/*[1]").is_displayed():
         context.driver.close()
         assert True, "Test Passed"
+        time.sleep(8)
     else:
         context.driver.close()
         assert False, "Test Failed"
-    time.sleep(8)
+    
     
 @when('Click on Multibox tab')
 def MultiboxTab(context):
@@ -76,7 +77,7 @@ def Signedout(context):
 
 @when('Select Analytics tab')
 def AnalyticsTab(context):
-    context.driver.find_element(By.XPATH, "//p[contains(text(),'Analytics')]").click()
+    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/button[1]/span[1]/div[1]/*[1]").click()
     # WebDriverWait(driver,30).until(EC.presence_of_element_located((By.XPATH, "//p[contains(text(),'Analytics')]"))).click()
     time.sleep(12)
                                                   
@@ -91,6 +92,7 @@ def dropdown(context):
     if visible1.is_displayed():
         context.driver.close()
         assert True, "Test Passed"
+        time.sleep(5)
     else: 
         context.driver.close()
         assert False, "Test Failed"
@@ -111,6 +113,7 @@ def Tile(context):
     if visible2.is_displayed():
         context.driver.close()
         assert True, "Test Passed"
+        time.sleep(5)
     else:
         context.driver.close()
         assert False, "Test Failed"
@@ -131,6 +134,7 @@ def sortIcon(context):
     if visible3.is_displayed():
         context.driver.close()
         assert True, "Test Passed"
+        time.sleep(5)
     else:
         context.driver.close()
         assert False, "Test Failed"
@@ -158,6 +162,7 @@ def sortIcon(context):
     if visible4.is_displayed():
         context.driver.close()
         assert True, "Test Passed"
+        time.sleep(5)
     else:
         context.driver.close()
         assert False, "Test Failed"
