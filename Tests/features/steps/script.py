@@ -20,7 +20,7 @@ def LaunchChrome(context):
 @when('Go to Safework login page')
 def SafewordDashboard(context):
     context.driver.get("https://qa.strongarmtech.com/login")
-    time.sleep(5)
+    time.sleep(10)
 
 @when('Enters "{email}" and "{pwd}"')
 def EnterCred(context, email, pwd):
