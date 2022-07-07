@@ -14,6 +14,7 @@ display.start()
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
     context.driver = webdriver.Chrome(ChromeDriverManager().install())
+    context.driver.maximize_window()
     time.sleep(5)
 
 @when('Go to Safework login page')
@@ -23,8 +24,8 @@ def SafewordDashboard(context):
 
 @when('Enters "{email}" and "{pwd}"')
 def EnterCred(context, email, pwd):
-    context.driver.find_element(By.ID, "username").send_keys(email)
-    context.driver.find_element(By.ID,"password").send_keys(pwd)
+    context.driver.find_element(By.XPATH, "//input[@id='username']").send_keys(email)
+    context.driver.find_element(By.XPATH, "//input[@id='password']").send_keys(pwd)
     time.sleep(5)
 
 email = os.environ.get('QA_CRED_EMAIL')
@@ -38,7 +39,6 @@ def EnterCred(context):
 
 @when('Click on login button')
 def LoginButton(context):
-    WebDriverWait(context.driver,45).until(EC.element_to_be_clickable((By.XPATH,"//span[text()='Login']")))
     context.driver.find_element(By.XPATH, "//span[text()='Login']").click()
     time.sleep(9)
 
@@ -61,7 +61,7 @@ def LoginCheck(context):
 def MultiboxTab(context):
     WebDriverWait(context.driver,45).until(EC.element_to_be_clickable((By.XPATH,"//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]/*[1]")))
     context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]/*[1]").click()
-    # time.sleep(12)
+    time.sleep(12)
 
 @when('Click on Signout tab')
 def SignoutTab(context):
@@ -76,9 +76,9 @@ def Signedout(context):
 
 @when('Select Analytics tab')
 def AnalyticsTab(context):
-    WebDriverWait(context.driver,45).until(EC.element_to_be_clickable((By.XPATH,"//p[contains(text(),'Analytics')]")))
-    context.driver.find_element(By.XPATH, "//p[contains(text(),'Analytics')]").click()
-    # time.sleep(14)
+    WebDriverWait(context.driver,45).until(EC.element_to_be_clickable((By.XPATH,"//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/button[1]/span[1]/div[1]/*[1]")))
+    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/button[1]/span[1]/div[1]/*[1]").click()
+    time.sleep(14)
                                                   
 @when('On Ergonomic Safety Dashboard click on Select Athlete dropdown')
 def select(context):
