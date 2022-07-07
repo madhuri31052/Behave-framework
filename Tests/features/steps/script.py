@@ -60,7 +60,7 @@ def LoginCheck(context):
 @when('Click on Multibox tab')
 def MultiboxTab(context):
     #WebDriverWait(context.driver,45).until(EC.element_to_be_clickable((By.XPATH,"//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]"))).click()
-    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]/*[1]").click()
+    context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]").click()
     time.sleep(12)
 
 @when('Click on Signout tab')
