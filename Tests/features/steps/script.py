@@ -32,15 +32,15 @@ pwd = os.environ.get('QA_CRED_PASS')
 
 @when('Enter QA_CRED_EMAIL and QA_CRED_PASS')
 def EnterCred(context):
-    context.driver.find_element(By.ID, "username").send_keys(email)
-    context.driver.find_element(By.ID, "password").send_keys(pwd)
+    context.driver.find_element(By.XPATH, "//input[@id='username']").send_keys(email)
+    context.driver.find_element(By.XPATH, "//input[@id='password']").send_keys(pwd)
     time.sleep(5)
 
 @when('Click on login button')
 def LoginButton(context):
     WebDriverWait(context.driver,45).until(EC.element_to_be_clickable((By.XPATH,"//span[text()='Login']")))
     context.driver.find_element(By.XPATH, "//span[text()='Login']").click()
-    # time.sleep(12)
+    time.sleep(9)
 
 @then('User should be logged in')
 def login(context):
@@ -148,8 +148,8 @@ pwd = os.environ.get('DEV3_CRED_PASS')
 
 @when('Enter DEV3_CRED_EMAIL and DEV3_CRED_PASS')
 def EnterCred(context):
-    context.driver.find_element(By.ID, "username").send_keys(email)
-    context.driver.find_element(By.ID, "password").send_keys(pwd)
+    context.driver.find_element(By.XPATH, "//input[@id='username']").send_keys(email)
+    context.driver.find_element(By.XPATH, "//input[@id='password']").send_keys(pwd)
     time.sleep(5)
 
 @then('User should be able to sort in dev3 env')
