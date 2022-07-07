@@ -6,21 +6,21 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 # from selenium.webdriver.support.ui import WebDriverWait
 # from selenium.webdriver.support import expected_conditions as EC
-from pyvirtualdisplay import Display
+# from pyvirtualdisplay import Display
 
-display = Display(visible=0, size=(1024, 768))
-display.start()
+# display = Display(visible=0, size=(1024, 768))
+# display.start()
 
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
-    context.driver = webdriver.Chrome(ChromeDriverManager().install())
+    context.driver=webdriver.Chrome(ChromeDriverManager().install() )
     context.driver.maximize_window()
     time.sleep(5)
 
 @when('Go to Safework login page')
 def SafewordDashboard(context):
     context.driver.get("https://qa.strongarmtech.com/login")
-    time.sleep(10)
+    time.sleep(5)
 
 @when('Enters "{email}" and "{pwd}"')
 def EnterCred(context, email, pwd):
@@ -28,13 +28,13 @@ def EnterCred(context, email, pwd):
     context.driver.find_element(By.XPATH,"//input[@id='password']").send_keys(pwd)
     time.sleep(5)
 
-email = os.environ.get('QA_CRED_EMAIL')
-pwd = os.environ.get('QA_CRED_PASS')
+QA_CRED_EMAIL = os.environ.get('QA_CRED_EMAIL')
+QA_CRED_PASS = os.environ.get('QA_CRED_PASS')
 
 @when('Enter QA_CRED_EMAIL and QA_CRED_PASS')
-def EnterCred(context):
-    context.driver.find_element(By.XPATH,"//input[@id='username']").send_keys(email)
-    context.driver.find_element(By.XPATH,"//input[@id='password']").send_keys(pwd)
+def EnterCred(context, QA_CRED_EMAIL, QA_CRED_PASS):
+    context.driver.find_element(By.XPATH,"//input[@id='username']").send_keys(QA_CRED_EMAIL)
+    context.driver.find_element(By.XPATH,"//input[@id='password']").send_keys(QA_CRED_PASS)
     time.sleep(5)
 
 @when('Click on login button')
@@ -143,13 +143,13 @@ def SafewordDashboard(context):
     context.driver.get("https://strongarm.dev3.strongarmtech.com/login")
     time.sleep(5)
 
-email = os.environ.get('DEV3_CRED_EMAIL')
-pwd = os.environ.get('DEV3_CRED_PASS')
+DEV3_CRED_EMAIL = os.environ.get('DEV3_CRED_EMAIL')
+DEV3_CRED_PASS= os.environ.get('DEV3_CRED_PASS')
 
 @when('Enter DEV3_CRED_EMAIL and DEV3_CRED_PASS')
-def EnterCred(context):
-    context.driver.find_element(By.XPATH,"//input[@id='username']").send_keys(email)
-    context.driver.find_element(By.XPATH,"//input[@id='password']").send_keys(pwd)
+def EnterCred(context, DEV3_CRED_EMAIL, DEV3_CRED_PASS):
+    context.driver.find_element(By.XPATH,"//input[@id='username']").send_keys(DEV3_CRED_PASS)
+    context.driver.find_element(By.XPATH,"//input[@id='password']").send_keys(DEV3_CRED_PASS)
     time.sleep(5)
 
 @then('User should be able to sort in dev3 env')
