@@ -35,22 +35,30 @@ jobs:
         pip install chromedriver
         pip install webdriver-manager
 
-    - name: run behave file
+    - name: run dev3.feature file
       env:
         DEV3_CRED_EMAIL : ${{ secrets.DEV3_CRED_EMAIL }}
         DEV3_CRED_PASS : ${{ secrets.DEV3_CRED_PASS }}
-        QA_CRED_EMAIL : ${{ secrets.QA_CRED_EMAIL }}
-        QA_CRED_PASS : ${{ secrets.QA_CRED_PASS }}
       run: |
             cd Tests
             case ${{ github.event.inputs.env_name }} in  
             dev3)
             behave -i dev3.feature
             ;;
+            esac
+
+    - name: run qa.feature file
+      env:
+        QA_CRED_EMAIL : ${{ secrets.QA_CRED_EMAIL }}
+        QA_CRED_PASS : ${{ secrets.QA_CRED_PASS }}
+      run: |
+            cd Tests
+            case ${{ github.event.inputs.env_name }} in  
             qa)
             behave -i qa.feature
             ;;
             esac
+
 
 
     
