@@ -4,8 +4,6 @@ import time
 import os
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
 from pyvirtualdisplay import Display
 
 display = Display(visible=0, size=(1024, 768))
@@ -59,7 +57,6 @@ def LoginCheck(context):
     
 @when('Click on Multibox tab')
 def MultiboxTab(context):
-    #WebDriverWait(context.driver,45).until(EC.element_to_be_clickable((By.XPATH,"//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]"))).click()
     context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]").click()
     time.sleep(12)
 
@@ -76,7 +73,6 @@ def Signedout(context):
 
 @when('Select Analytics tab')
 def AnalyticsTab(context):
-    # WebDriverWait(context.driver,45).until(EC.element_to_be_clickable((By.XPATH,"//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/button[1]/span[1]"))).click()
     context.driver.find_element(By.XPATH,"//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/button[1]").click()
     time.sleep(14)
                                                   
