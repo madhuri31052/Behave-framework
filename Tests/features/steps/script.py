@@ -38,8 +38,9 @@ def EnterCred(context):
 
 @when('Click on login button')
 def LoginButton(context):
+    WebDriverWait(context.driver,45).until(EC.element_to_be_clickable((By.XPATH,"//span[text()='Login']")))
     context.driver.find_element(By.XPATH, "//span[text()='Login']").click()
-    time.sleep(12)
+    # time.sleep(12)
 
 @then('User should be logged in')
 def login(context):
@@ -60,7 +61,7 @@ def LoginCheck(context):
 def MultiboxTab(context):
     WebDriverWait(context.driver,45).until(EC.element_to_be_clickable((By.XPATH,"//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]/*[1]")))
     context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[3]/div[1]/*[1]").click()
-    time.sleep(12)
+    # time.sleep(12)
 
 @when('Click on Signout tab')
 def SignoutTab(context):
@@ -77,7 +78,7 @@ def Signedout(context):
 def AnalyticsTab(context):
     WebDriverWait(context.driver,45).until(EC.element_to_be_clickable((By.XPATH,"//p[contains(text(),'Analytics')]")))
     context.driver.find_element(By.XPATH, "//p[contains(text(),'Analytics')]").click()
-    time.sleep(14)
+    # time.sleep(14)
                                                   
 @when('On Ergonomic Safety Dashboard click on Select Athlete dropdown')
 def select(context):
