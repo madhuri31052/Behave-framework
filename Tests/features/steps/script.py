@@ -32,7 +32,7 @@ QA_CRED_EMAIL = os.environ.get('QA_CRED_EMAIL')
 QA_CRED_PASS = os.environ.get('QA_CRED_PASS')
 
 @when('Enter QA_CRED_EMAIL and QA_CRED_PASS')
-def EnterCred(context, QA_CRED_EMAIL, QA_CRED_PASS):
+def EnterCred(context):
     context.driver.find_element(By.XPATH,"//input[@id='username']").send_keys(QA_CRED_EMAIL)
     context.driver.find_element(By.XPATH,"//input[@id='password']").send_keys(QA_CRED_PASS)
     time.sleep(5)
@@ -147,8 +147,8 @@ DEV3_CRED_EMAIL = os.environ.get('DEV3_CRED_EMAIL')
 DEV3_CRED_PASS= os.environ.get('DEV3_CRED_PASS')
 
 @when('Enter DEV3_CRED_EMAIL and DEV3_CRED_PASS')
-def EnterCred(context, DEV3_CRED_EMAIL, DEV3_CRED_PASS):
-    context.driver.find_element(By.XPATH,"//input[@id='username']").send_keys(DEV3_CRED_PASS)
+def EnterCred(context):
+    context.driver.find_element(By.XPATH,"//input[@id='username']").send_keys(DEV3_CRED_EMAIL)
     context.driver.find_element(By.XPATH,"//input[@id='password']").send_keys(DEV3_CRED_PASS)
     time.sleep(5)
 
