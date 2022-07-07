@@ -6,10 +6,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
-from pyvirtualdisplay import Display
+# from pyvirtualdisplay import Display
 
-display = Display(visible=0, size=(1024, 768))
-display.start()
+# display = Display(visible=0, size=(1024, 768))
+# display.start()
 
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
@@ -50,10 +50,10 @@ def login(context):
 @then('User should not be able to login')
 def LoginCheck(context):
     if context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[1]/div[1]/form[1]/div[1]/*[1]").is_displayed():
-        context.driver.close()
+        context.driver.quit()
         assert True, "Test Passed"
     else:
-        context.driver.close()
+        context.driver.quit()
         assert False, "Test Failed"
     
 @when('Click on Multibox tab')
@@ -86,10 +86,10 @@ def select(context):
 def dropdown(context):
     visible1 = context.driver.find_element(By.XPATH, "//div[@id='Select AthleteSelect']")
     if visible1.is_displayed():
-        context.driver.close()
+        context.driver.quit()
         assert True, "Test Passed"
     else: 
-        context.driver.close()
+        context.driver.quit()
         assert False, "Test Failed"
 
 @when('Click on Fuse Dashboard tab')
@@ -106,10 +106,10 @@ def hiretenure(context):
 def Tile(context):
     visible2 = context.driver.find_element(By.XPATH, "//h6[contains(text(),'Highest Risk Tenure Group')]")
     if visible2.is_displayed():
-        context.driver.close()
+        context.driver.quit()
         assert True, "Test Passed"
     else:
-        context.driver.close()
+        context.driver.quit()
         assert False, "Test Failed"
 
 @when('Select corporate report tab')
@@ -126,10 +126,10 @@ def warehouse(context):
 def sortIcon(context):
     visible3 = context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]")
     if visible3.is_displayed():
-        context.driver.close()
+        context.driver.quit()
         assert True, "Test Passed"
     else:
-        context.driver.close()
+        context.driver.quit()
         assert False, "Test Failed"
 
 
@@ -153,8 +153,8 @@ def EnterCred(context):
 def sortIcon(context):
     visible4 = context.driver.find_element(By.XPATH, "//body/div[@id='root']/div[1]/div[2]/div[1]/div[2]/main[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]")
     if visible4.is_displayed():
-        context.driver.close()
+        context.driver.quit()
         assert True, "Test Passed"
     else:
-        context.driver.close()
+        context.driver.quit()
         assert False, "Test Failed"
