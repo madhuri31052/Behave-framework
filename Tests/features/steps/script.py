@@ -6,10 +6,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 # from selenium.webdriver.support.ui import WebDriverWait
 # from selenium.webdriver.support import expected_conditions as EC
-# from pyvirtualdisplay import Display
+from pyvirtualdisplay import Display
 
-# display = Display(visible=0, size=(1024, 768))
-# display.start()
+display = Display(visible=0, size=(1024, 768))
+display.start()
 
 @given('Launch Chrome Browser')
 def LaunchChrome(context):
