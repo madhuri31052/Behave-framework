@@ -73,7 +73,7 @@ def Signedout(context):
 
 @when('Select Analytics tab')
 def AnalyticsTab(context):
-    context.driver.find_element(By.XPATH,"//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/button[1]").click()
+    context.driver.find_element(By.XPATH,"//body/div[@id='root']/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[3]/button[1]/span[1]/div[1]/*[1]").click()
     time.sleep(14)
                                                   
 @when('On Ergonomic Safety Dashboard click on Select Athlete dropdown')

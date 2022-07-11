@@ -20,14 +20,14 @@ Feature: Test cases for testing qa environment
         And Click on Signout tab
         Then User should be signed out
 
-    # Scenario: Check user is able to select an Athlete before selecting Warehouse in Ergonomic report
-    #     Given Launch Chrome Browser
-    #     When Go to Safework login page
-    #     And Enter QA_CRED_EMAIL and QA_CRED_PASS
-    #     And Click on login button
-    #     And Select Analytics tab
-    #     And On Ergonomic Safety Dashboard click on Select Athlete dropdown
-    #     Then User should not be able to Select an Athlete before selecting Warehouse
+    Scenario: Check user is able to select an Athlete before selecting Warehouse in Ergonomic report
+        Given Launch Chrome Browser
+        When Go to Safework login page
+        And Enter QA_CRED_EMAIL and QA_CRED_PASS
+        And Click on login button
+        And Select Analytics tab
+        And On Ergonomic Safety Dashboard click on Select Athlete dropdown
+        Then User should not be able to Select an Athlete before selecting Warehouse
 
     # Scenario: Check Highest Risk Tenure Group tile is present
     #     Given Launch Chrome Browser
