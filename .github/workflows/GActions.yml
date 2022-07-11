@@ -37,7 +37,7 @@ jobs:
 
     - name: run behave file
       run: |
-            ls
+            cd Tests
             behave -i qa.feature
 
 
