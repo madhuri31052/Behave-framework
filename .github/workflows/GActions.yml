@@ -3,10 +3,10 @@
 
 name: Run-Tests
 on:
-  # push:
-  #   branches: [ main ]
-  # pull_request:
-  #   branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       env_name:
@@ -36,21 +36,27 @@ jobs:
         pip install webdriver-manager
 
     - name: run behave file
-      env:
-        QA_CRED_EMAIL : ${{ secrets.QA_CRED_EMAIL }}
-        QA_CRED_PASS : ${{ secrets.QA_CRED_PASS }}
-        DEV3_CRED_EMAIL : ${{ secrets.DEV3_CRED_EMAIL }}
-        DEV3_CRED_PASS : ${{ secrets.DEV3_CRED_PASS }}
       run: |
-            cd Tests
-            case ${{ github.event.inputs.env_name }} in  
-            dev3)
-            behave -i dev3.feature
-            ;;
-            qa)
+            ls
             behave -i qa.feature
-            ;;
-            esac
+
+
+    # - name: run behave file
+    #   env:
+    #     QA_CRED_EMAIL : ${{ secrets.QA_CRED_EMAIL }}
+    #     QA_CRED_PASS : ${{ secrets.QA_CRED_PASS }}
+    #     DEV3_CRED_EMAIL : ${{ secrets.DEV3_CRED_EMAIL }}
+    #     DEV3_CRED_PASS : ${{ secrets.DEV3_CRED_PASS }}
+    #   run: |
+    #         cd Tests
+    #         case ${{ github.event.inputs.env_name }} in  
+    #         dev3)
+    #         behave -i dev3.feature
+    #         ;;
+    #         qa)
+    #         behave -i qa.feature
+    #         ;;
+    #         esac
 
 
     
