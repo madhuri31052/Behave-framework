@@ -22,7 +22,10 @@ from selenium.webdriver.support.select import Select
 # from BDDCommon.CommonSteps import webcommon
 # from BDDCommon.CommonSteps import *
 from selenium.webdriver import chrome
+from pyvirtualdisplay import Display
 
+display = Display(visible=0, size=(1024, 768))
+display.start()
 
 @given(u'user is on client page')
 def Loginconections(context):
