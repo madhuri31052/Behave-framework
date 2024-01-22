@@ -32,8 +32,8 @@ def Loginconections(context):
     #webcommon.go_to(context,url,email,pwd)
     url="https://strongarm.dev3.strongarmtech.com/login"
 
-    email = "raj@strongarmtech.com"
-    pwd = "Whoknows@0"
+    email = ""
+    pwd = ""
 
     context.driver=webdriver.Chrome(ChromeDriverManager().install())
     context.driver.maximize_window()
